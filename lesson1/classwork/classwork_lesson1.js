@@ -101,14 +101,14 @@
 // Знайдіть гіпотенузу k за теоремою Піфагора (потрібно використовувати функцію Math.pow (число, ступінь) або оператор зведення в ступінь **).
 
 // Виконання
-function hypotenuse(n,m) {
-
-    let k = Math.sqrt((Math.pow(n,2)) * (Math.pow(m,2)))
-
-    return k
-}
-
-console.log(hypotenuse(3, 4));
+// function hypotenuse(n,m) {
+//
+//     let k = Math.sqrt((Math.pow(n,2)) * (Math.pow(m,2)))
+//
+//     return k
+// }
+//
+// console.log(hypotenuse(3, 4));
 
 
 //--------------------------------------------------------------------------------
