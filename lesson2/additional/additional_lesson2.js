@@ -65,5 +65,8 @@
 //     alert('This is negative number')
 // }
 
+let number = +prompt('Type a number')
+number = number > 0 ? alert('This is positive number') : number < 0 ? alert('This is negative number') : number === 0 ? alert('Number is zero') : alert('Shit')
+
 
 //----------------------------------------------------------------------------------------
