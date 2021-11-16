@@ -195,11 +195,11 @@
 // - Створити цикл for на 100 ітерацій з кроком 2. Вивести поточний номер кроку через console.log та document.write
 
 // Виконання
-// for (let i = 2; i <= 100; i++) {
+// for (let i = 2; i <= 100; i+=2) {
 //     document.write(`<div>Step ${i}</div>`)
 // }
 //
-// for (let i = 2; i <= 100; i++) {
+// for (let i = 2; i <= 100; i+=2) {
 //     console.log(`Step ${i}`)
 // }
 
