@@ -36,14 +36,13 @@
 //         for (let i = num1; i >= num2; i--) {
 //             console.log(i)
 //         }
-//     } else if (typeof num1 === 'number' && typeof num2 === 'number') {
-//         if (num1 === num2) {
-//             console.log(`Nums are equal - ${num1}`)
-//         }
+//     } else if (typeof num1 === 'number' && typeof num2 === 'number' && num1 === num2) {
+//         console.log(`Nums are equal - ${num1}`)
+//
 //     }
 // }
 //
-// incrOrDecr(1,5)
+// incrOrDecr(10, 50)
 
 //----------------------------------
 
