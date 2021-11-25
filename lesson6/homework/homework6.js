@@ -122,15 +122,14 @@
 // - Напишіть функцію capitalize(str), яка повертає рядок, у якому кожне слово починається з великої літери.
 
 // Виконання
-// let str = 'hi my name iz xxx'
+// let str = 'hi my name iz xxx   sad'
 //
 // let capitalizer = (str) => {
 //     let split = str.split(' ');
 //     let mappedStr = split.map((value, index) => {
-//         return value.replace(value[0],value[0].toUpperCase())
+//         return  value.charAt(0).toUpperCase()+value.slice(1)
 //     })
-//
-//     return str = mappedStr.join(' ');
+//     return mappedStr.join(' ')
 // }
 //
 // console.log(capitalizer(str));
