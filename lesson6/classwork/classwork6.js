@@ -205,19 +205,19 @@
 // document.writeln(cutString('наслаждение',3)) // [нас,лаж,ден,ие]
 
 //Виконання
-let str = 'наслаждение';
-
-
-let cutString = (str, n) => {
-    let split = str.split('');
-    for (let i = n-1; i < split.length; i += n) {
-        split[i] = split[i].replace(split[i], `${split[i]},`);
-
-    }
-    return split.join('').split();
-}
-
-console.log(cutString(str, 3));
+// let str = 'наслаждение';
+//
+//
+// let cutString = (str, n) => {
+//     let split = str.split('');
+//     for (let i = n-1; i < split.length; i += n) {
+//         split[i] = split[i].replace(split[i], `${split[i]},`);
+//
+//     }
+//     return split.join('').split();
+// }
+//
+// console.log(cutString(str, 3));
 
 
 //---------------------------------=
