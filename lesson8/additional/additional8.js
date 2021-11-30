@@ -1,6 +1,8 @@
+let emptyArr = [];
+
 function reCall(startElem) {
     if (startElem.classList.value !== '') {
-        console.log(startElem.classList.value);
+        emptyArr.push(startElem.classList.value)
     }
     if (startElem.children.length) {
         for (const element of startElem.children) {
@@ -9,4 +11,5 @@ function reCall(startElem) {
     }
 }
 
-reCall(document.body);
+reCall(document.body)
+console.log(emptyArr.join(' ').split(' '));
