@@ -36,7 +36,7 @@ function userCard(number) {
             })
         },
         transferCredits: function (value, cardToTransfer) {
-            obj.balance -= ((value)-(value*0.5/100));
+            obj.balance -= value;
             cardToTransfer.putCredits(value);
             obj.historyLogs.push({
                 operationType: 'Transaction on another card',
