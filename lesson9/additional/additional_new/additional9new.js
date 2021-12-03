@@ -236,85 +236,130 @@ let usersList = [
 ];
 
 
-for (const usersListElement of usersList) {
-    let userDiv = document.createElement('div');
-    document.body.appendChild(userDiv);
-    userDiv.style.marginBottom = '100px';
-
-    let userIdDiv = document.createElement('div');
-    userDiv.appendChild(userIdDiv);
-    userIdDiv.innerText = usersListElement.id;
-
-    let nameDiv = document.createElement('div');
-    userDiv.appendChild(nameDiv);
-    nameDiv.innerText = usersListElement.name;
-
-    let userNameDiv = document.createElement('div');
-    userDiv.appendChild(userNameDiv);
-    userNameDiv.innerText = usersListElement.username;
-
-    let userEmailDiv = document.createElement('div');
-    userDiv.appendChild(userEmailDiv);
-    userEmailDiv.innerText = usersListElement.email;
-
-    let addressDiv = document.createElement('div');
-    userDiv.appendChild(addressDiv);
-    let ulForAddress = document.createElement('ul');
-    addressDiv.appendChild(ulForAddress)
-
-
-    for (const addressElement in usersListElement.address) {
-        let divForLi = document.createElement('div');
-        ulForAddress.appendChild(divForLi);
-        let liElement = document.createElement('li');
-        divForLi.appendChild(liElement);
-        if (addressElement !== 'geo') {
-            liElement.innerText = `${addressElement} - ${usersListElement.address[addressElement]}`;
-        } else {
-            liElement.innerText = `${addressElement}:`
-        }
-    }
-
-
-    for (const geoKey in usersListElement.address.geo) {
-        let divForLi = document.createElement('div');
-        ulForAddress.appendChild(divForLi);
-        let liElement = document.createElement('li');
-        divForLi.appendChild(liElement);
-        liElement.innerText = `${geoKey} - ${usersListElement.address.geo[geoKey]}`
-
-    }
-
-    let divForPhone = document.createElement('div');
-    userDiv.appendChild(divForPhone);
-    divForPhone.innerText = usersListElement.phone;
-
-    let divForWebsite = document.createElement('div');
-    userDiv.appendChild(divForWebsite);
-    divForWebsite.innerText = usersListElement.website;
-
-    let divForCompany = document.createElement('div');
-    userDiv.appendChild(divForCompany);
-    divForCompany.innerText = 'Company:'
-    let ulForCompany = document.createElement('ul');
-    divForCompany.appendChild(ulForCompany);
-    for (const companyKey in usersListElement.company) {
-        let divForLi = document.createElement('div');
-        ulForCompany.appendChild(divForLi);
-        let liElement = document.createElement('li');
-        divForLi.appendChild(liElement);
-        liElement.innerText = `${companyKey} - ${usersListElement.company[companyKey]}`
-
-    }
-
-
-
-}
+// for (const usersListElement of usersList) {
+//     let userDiv = document.createElement('div');
+//     document.body.appendChild(userDiv);
+//     userDiv.style.marginBottom = '100px';
+//
+//     let userIdDiv = document.createElement('div');
+//     userDiv.appendChild(userIdDiv);
+//     userIdDiv.innerText = usersListElement.id;
+//
+//     let nameDiv = document.createElement('div');
+//     userDiv.appendChild(nameDiv);
+//     nameDiv.innerText = usersListElement.name;
+//
+//     let userNameDiv = document.createElement('div');
+//     userDiv.appendChild(userNameDiv);
+//     userNameDiv.innerText = usersListElement.username;
+//
+//     let userEmailDiv = document.createElement('div');
+//     userDiv.appendChild(userEmailDiv);
+//     userEmailDiv.innerText = usersListElement.email;
+//
+//     let addressDiv = document.createElement('div');
+//     userDiv.appendChild(addressDiv);
+//     let ulForAddress = document.createElement('ul');
+//     addressDiv.appendChild(ulForAddress)
+//
+//
+//     for (const addressElement in usersListElement.address) {
+//         let divForLi = document.createElement('div');
+//         ulForAddress.appendChild(divForLi);
+//         let liElement = document.createElement('li');
+//         divForLi.appendChild(liElement);
+//         if (addressElement !== 'geo') {
+//             liElement.innerText = `${addressElement} - ${usersListElement.address[addressElement]}`;
+//         } else {
+//             liElement.innerText = `${addressElement}:`
+//         }
+//     }
+//
+//
+//     for (const geoKey in usersListElement.address.geo) {
+//         let divForLi = document.createElement('div');
+//         ulForAddress.appendChild(divForLi);
+//         let liElement = document.createElement('li');
+//         divForLi.appendChild(liElement);
+//         liElement.innerText = `${geoKey} - ${usersListElement.address.geo[geoKey]}`
+//
+//     }
+//
+//     let divForPhone = document.createElement('div');
+//     userDiv.appendChild(divForPhone);
+//     divForPhone.innerText = usersListElement.phone;
+//
+//     let divForWebsite = document.createElement('div');
+//     userDiv.appendChild(divForWebsite);
+//     divForWebsite.innerText = usersListElement.website;
+//
+//     let divForCompany = document.createElement('div');
+//     userDiv.appendChild(divForCompany);
+//     divForCompany.innerText = 'Company:'
+//     let ulForCompany = document.createElement('ul');
+//     divForCompany.appendChild(ulForCompany);
+//     for (const companyKey in usersListElement.company) {
+//         let divForLi = document.createElement('div');
+//         ulForCompany.appendChild(divForLi);
+//         let liElement = document.createElement('li');
+//         divForLi.appendChild(liElement);
+//         liElement.innerText = `${companyKey} - ${usersListElement.company[companyKey]}`
+//
+//     }
+//
+//
+//
+// }
 
 /////////////////////////////////////////
 
+let divForEveryKey = (object) => {
+    for (const element of object) {
+        let divForElement = document.createElement('div');
+        document.body.appendChild(divForElement);
+        divForElement.style.marginBottom = '100px';
+        for (const elementKey in element) {
+            let divForElementKey = document.createElement('div');
+            divForElement.appendChild(divForElementKey);
+            if (typeof element[elementKey] !== 'object') {
+                divForElementKey.innerText = `${elementKey} - ${element[elementKey]}`;
 
+            } else {
+                divForElement.appendChild(divForElementKey);
+                divForElementKey.innerText = elementKey;
+                let ulForDeeperElements = document.createElement('ul');
+                divForElementKey.appendChild(ulForDeeperElements);
+                for (const deeperElement in element[elementKey]) {
+                    let liElement = document.createElement('li');
+                    let divForLi = document.createElement('div');
+                    ulForDeeperElements.appendChild(divForLi);
+                    divForLi.appendChild(liElement);
+                    if (typeof element[elementKey][deeperElement] !== 'object') {
+                        liElement.innerText = `${deeperElement} - ${element[elementKey][deeperElement]} `;
+                    }
+                    else {
+                        liElement.innerText = deeperElement;
+                        let divInLi = document.createElement('div');
+                        liElement.appendChild(divInLi);
+                        let ulInDiv = document.createElement('ul');
+                        divInLi.appendChild(ulInDiv);
+                        for (const elementk in element[elementKey][deeperElement]) {
+                            let divForLiK= document.createElement('div');
+                            ulInDiv.appendChild(divForLiK);
+                            let liInUl = document.createElement('li');
+                            divForLiK.appendChild(liInUl);
+                            liInUl.innerText = `${elementk} - ${element[elementKey][deeperElement][elementk]}`;
 
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+divForEveryKey(usersList);
 
 
 
