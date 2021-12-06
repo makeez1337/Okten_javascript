@@ -149,14 +149,8 @@
 // Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
 
-//Виконання
-// document.body.onmouseover = function (e) {
-//     e.target.classList.toggle('selection');
-//     document.body.onmouseleave = function () {
-//         e.target.classList.toggle('selection');
-//     };
-// };
 
+// Виконання
 let paragraph = document.getElementsByClassName('paragraph')[0];
 
 paragraph.onmouseup = function () {
