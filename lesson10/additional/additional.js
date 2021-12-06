@@ -149,9 +149,55 @@
 // Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
 
-document.body.onmouseover = function (e) {
-    e.target.classList.toggle('selection');
-    document.body.onmouseleave = function () {
-        e.target.classList.toggle('selection');
-    };
+//Виконання
+// document.body.onmouseover = function (e) {
+//     e.target.classList.toggle('selection');
+//     document.body.onmouseleave = function () {
+//         e.target.classList.toggle('selection');
+//     };
+// };
+
+let paragraph = document.getElementsByClassName('paragraph')[0];
+
+paragraph.onmouseup = function () {
+    let text = window.getSelection();
+    console.log(text);
+
+    text.anchorNode.parentElement.style.fontSize = '100px';
 };
+
+
+///////////////////////////////////////////////////////
+
+// *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
+// при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
+// НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
+//   Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
+
+
+// let bat1 = document.getElementById('bat1');
+// let bat2 = document.getElementById('bat2');
+//
+// let div1 = document.getElementById('div1');
+// let div2 = document.getElementById('div2');
+//
+//
+// bat2.onclick = function () {
+//     function nextElement(startElement) {
+//         console.log(startElement);
+//         if (startElement.children.length) {
+//             for (let i = 0; i < startElement.children.length; i++) {
+//                 bat2.onclick = function () {
+//                     nextElement(startElement.children[0]);
+//                 };
+//
+//             }
+//         }else if (!startElement.children.length) {
+//
+//         }
+//     }
+//
+//     nextElement(div1);
+//
+// };
+
