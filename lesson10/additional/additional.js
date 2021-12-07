@@ -153,11 +153,16 @@
 // Виконання
 let paragraph = document.getElementsByClassName('paragraph')[0];
 
-paragraph.onmouseup = function () {
-    let text = window.getSelection();
-    console.log(text);
+paragraph.onmouseup = function (e) {
+    const selObj = window.getSelection();
+    const {startOffset, endOffset} = selObj.getRangeAt(0);
+    console.log(startOffset);
+    console.log(endOffset);
+    let text = window.getSelection().toString();
+    console.log(selObj);
 
-    text.anchorNode.parentElement.style.fontSize = '100px';
+    paragraph.innerHTML = selObj.anchorNode.data.split(`${selObj.toString()}`).join(`<b>${selObj.toString()}</b>`)
+
 };
 
 
