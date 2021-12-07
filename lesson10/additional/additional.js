@@ -158,10 +158,20 @@ paragraph.onmouseup = function (e) {
     const {startOffset, endOffset} = selObj.getRangeAt(0);
     console.log(startOffset);
     console.log(endOffset);
-    let text = window.getSelection().toString();
+
     console.log(selObj);
 
-    paragraph.innerHTML = selObj.anchorNode.data.split(`${selObj.toString()}`).join(`<b>${selObj.toString()}</b>`)
+    let textBeforeCut = selObj.anchorNode.data.substring(0, startOffset);
+    let cutText = `<b>${window.getSelection().toString()}</b>`
+    let textAfterCut = selObj.anchorNode.data.substring(endOffset);
+
+    console.log(textBeforeCut);
+    console.log(cutText);
+    console.log(textAfterCut);
+
+    let concat = textBeforeCut.concat(cutText).concat(textAfterCut);
+    paragraph.innerHTML = concat;
+
 
 };
 
