@@ -169,8 +169,7 @@ paragraph.onmouseup = function (e) {
     console.log(cutText);
     console.log(textAfterCut);
 
-    let concat = textBeforeCut.concat(cutText).concat(textAfterCut);
-    paragraph.innerHTML = concat;
+    paragraph.innerHTML = textBeforeCut.concat(cutText).concat(textAfterCut);
 
 
 };
