@@ -187,20 +187,19 @@ let bat2 = document.getElementById('bat2');
 let div1 = document.getElementById('div1');
 let div2 = document.getElementById('div2');
 
-
 bat2.onclick = function () {
     function nextElement(startElement) {
         console.log(startElement);
-        if (startElement.children.length) {
-                bat2.onclick = function () {
-                    nextElement(startElement.children[0]);
-                }
+        if (startElement.children) {
+            bat2.onclick = function () {
+                nextElement(startElement.children[0]);
+            }
+        } else {
 
-        } else if (!startElement.children.length) {
-            console.error('This is last element');
         }
     }
 
-    nextElement(div1);
+    nextElement(document.body);
 
 };
+
