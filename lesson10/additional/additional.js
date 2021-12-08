@@ -195,7 +195,7 @@ bat2.onclick = function () {
                 nextElement(startElement.children[0]);
             }
         } else {
-
+            ////НЕ ПРАЦЮЄ КОЛИ В ЕЛЕМЕНТА ЗАКІНЧУЮТЬСЯ ДОЧІРНІ ЕЛЕМЕНТИ
         }
     }
 
