@@ -149,31 +149,29 @@
 // Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
 
-
 // Виконання
-let paragraph = document.getElementsByClassName('paragraph')[0];
-
-paragraph.onmouseup = function (e) {
-    const selObj = window.getSelection();
-    const {startOffset, endOffset} = selObj.getRangeAt(0);
-    console.log(startOffset);
-    console.log(endOffset);
-
-    console.log(selObj);
-
-    let textBeforeCut = selObj.anchorNode.data.substring(0, startOffset);
-    let cutText = `<b>${window.getSelection().toString()}</b>`
-    let textAfterCut = selObj.anchorNode.data.substring(endOffset);
-
-    console.log(textBeforeCut);
-    console.log(cutText);
-    console.log(textAfterCut);
-
-    paragraph.innerHTML = textBeforeCut.concat(cutText).concat(textAfterCut);
-
-
-};
-
+// let paragraph = document.getElementsByClassName('paragraph')[0];
+//
+// paragraph.onmouseup = function (e) {
+//     const selObj = window.getSelection();
+//     const {startOffset, endOffset} = selObj.getRangeAt(0);
+//     console.log(startOffset);
+//     console.log(endOffset);
+//
+//     console.log(selObj);
+//
+//     let textBeforeCut = selObj.anchorNode.data.substring(0, startOffset);
+//     let cutText = `<b>${window.getSelection().toString()}</b>`
+//     let textAfterCut = selObj.anchorNode.data.substring(endOffset);
+//
+//     console.log(textBeforeCut);
+//     console.log(cutText);
+//     console.log(textAfterCut);
+//
+//     paragraph.innerHTML = textBeforeCut.concat(cutText).concat(textAfterCut);
+//
+//
+// };
 
 ///////////////////////////////////////////////////////
 
@@ -183,29 +181,26 @@ paragraph.onmouseup = function (e) {
 //   Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
 
 // НЕДОРОБИВ НЕДОРОБИВ НЕДОРОБИВ НЕДОРОБИВ НЕДОРОБИВ НЕДОРОБИВ НЕДОРОБИВ НЕДОРОБИВ НЕДОРОБИВ
-// let bat1 = document.getElementById('bat1');
-// let bat2 = document.getElementById('bat2');
-//
-// let div1 = document.getElementById('div1');
-// let div2 = document.getElementById('div2');
-//
-//
-// bat2.onclick = function () {
-//     function nextElement(startElement) {
-//         console.log(startElement);
-//         if (startElement.children.length) {
-//             for (let i = 0; i < startElement.children.length; i++) {
-//                 bat2.onclick = function () {
-//                     nextElement(startElement.children[0]);
-//                 };
-//
-//             }
-//         }else if (!startElement.children.length) {
-//
-//         }
-//     }
-//
-//     nextElement(div1);
-//
-// };
+let bat1 = document.getElementById('bat1');
+let bat2 = document.getElementById('bat2');
 
+let div1 = document.getElementById('div1');
+let div2 = document.getElementById('div2');
+
+
+bat2.onclick = function () {
+    function nextElement(startElement) {
+        console.log(startElement);
+        if (startElement.children.length) {
+                bat2.onclick = function () {
+                    nextElement(startElement.children[0]);
+                }
+
+        } else if (!startElement.children.length) {
+            console.error('This is last element');
+        }
+    }
+
+    nextElement(div1);
+
+};
