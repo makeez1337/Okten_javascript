@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><h3><a href="index.html">BACK TO SHOP</a></h3></div>
+
+
+<script>
+    const products = localStorage.getItem('products');
+    const parsed = JSON.parse(products);
+    const remover = document.createElement('button');
+    document.body.appendChild(remover);
+    remover.innerText = 'DELETE ALL CARD';
+    for (const product of parsed) {
+        const divForProduct = document.createElement('div');
+        divForProduct.style.marginBottom = '80px';
+        const h3ForProductName = document.createElement('h3');
+        h3ForProductName.innerText = product.productName;
+        const pForPriceAndAmoount = document.createElement('p');
+        pForPriceAndAmoount.innerText = `Ціна - ${product.productPrice} , кількість - ${product.productAmount}`
+        const productImg = document.createElement('img');
+        productImg.src = product.productImage;
+        const buttonToRemoveFromCard = document.createElement('button');
+        buttonToRemoveFromCard.innerText = 'REMOVE FROM CARD';
+
+        buttonToRemoveFromCard.onclick = function () {
+            let indexOf = parsed.indexOf(product);
+            parsed.splice(indexOf,1);
+            localStorage.setItem('products', JSON.stringify(parsed));
+            divForProduct.remove();
+
+        };
+
+        remover.onclick = function () {
+            localStorage.removeItem('products');
+            document.location.reload();
+        };
+
+
+
+        document.body.appendChild(divForProduct);
+        divForProduct.appendChild(h3ForProductName);
+        divForProduct.appendChild(pForPriceAndAmoount);
+        divForProduct.appendChild(productImg);
+        divForProduct.appendChild(buttonToRemoveFromCard);
+    }
+
+
+</script>
+</body>
+</html>
