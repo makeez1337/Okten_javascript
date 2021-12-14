@@ -73,13 +73,7 @@
                     commentsWrap.style.top = '-2000px';
                     commentsWrap.style.transition = '1s';
 
-                    openComments.onclick = function () {
-                        if (commentsWrap.style.top === '-1200px') {
-                            commentsWrap.style.top = '0';
-                        }else {
-                            commentsWrap.style.top = '-1200px';
-                        }
-                    };
+
 
 
 
@@ -91,7 +85,7 @@
                                     console.log(comment);
                                     const divForComment = document.createElement('div');
                                     const pForName = document.createElement('p');
-                                    pForName.innerText = comment.name;
+                                    pForName.innerText = `id-${parsedDetail}, ${comment.name}`;
                                     const pForEmail = document.createElement('p');
                                     pForEmail.innerText = comment.email;
                                     const pForBody = document.createElement('p');
@@ -112,6 +106,13 @@
                                     commentsWrap.appendChild(divForComment);
                                 }
                             }
+                            openComments.onclick = function () {
+                                if (commentsWrap.style.top === '-1200px') {
+                                    commentsWrap.style.top = '0';
+                                }else {
+                                    commentsWrap.style.top = '-1200px';
+                                }
+                            };
                         })
 
                 }
